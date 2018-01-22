@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>欢迎进入比逗share空间</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		*{
+			margin: 0 0;
+		}
+		body{
+			font-family:"微软雅黑";
+			background-image: url("./img/back1.jpg");
+		}
+		#up{
+			background-size:100% auto ; 
+			height: 70%;
+			padding-top: 3px;
+		}
+		#top_menu{
+			width: 50%;
+			margin: 0 auto;
+		}
+		#top_menu img{
+			width: 100%;
+		}
+		#main_body{
+			text-align: center;
+			width: 70%;
+			margin: 0 auto;
+		}
+		#main_body #song_div{
+			text-align: center;
+			color: white;
+			font-size: 10px;
+		}
+		#pic{
+			margin:0 auto;
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			margin-bottom: 10px;
+			margin-top: 30px;
+			opacity:0.8;
+		}
+		#out{
+			position: fixed;
+			display: none;
+		}
+		.control{
+			margin:0 auto;
+		}
+		#low{
+			padding-top: 10px;
+		}
+		#low_mainbody{
+			text-align: center;
+			width: 70%;
+			margin: 0 auto;
+		}
+		.menu{
+			width: 100%;
+			text-align: center;
+			color: white;
+			margin-bottom: 15px;
+		}
+		#hide{
+			display: none;
+		}
+		#foot{
+			text-align: center;
+			position: fixed;
+			bottom: -10px;
+			width: 100%;
+			height: 30px;
+		}
+		#time div{
+			float: left;
+			display: inline;
+			height: 2px;
+		}
+		#time{
+			margin: 0 auto;
+			padding-top: 5px;
+			padding-bottom: 15px;
+		}
+		#time_two{
+			background-color: black;
+			width: 99%;
+		}
+		#time_one{
+			background-color: white;
+			width: 1%;
+		}
+		#flag{
+			position: fixed;
+			right: 50px;
+			top: 65px;
+			width: 20%;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		//background-color: rgb(64,33,15);
+		if(window.innerHeight<500){
+			document.getElementById("pic").style.height="140px";
+			document.getElementById("pic").style.width="140px";
+			document.getElementById("time").style.width="140px";
+			document.getElementById("play").style.width="35px";
+		}
+		if(window.innerHeight>=500&&window.innerHeight<=580){
+			document.getElementById("pic").style.height="180px";
+			document.getElementById("pic").style.width="180px";
+			document.getElementById("time").style.width="180px";
+			document.getElementById("play").style.width="45px";
+		}
+		if(window.innerHeight>660){
+			document.getElementById("pic").style.height="260px";
+			document.getElementById("pic").style.width="260px";
+			document.getElementById("time").style.width="260px";
+			document.getElementById("play").style.width="55px";
+		}
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		document.getElementById("out").style.left=(width/2-120)+"px";
+		document.getElementById("out").style.top=(height/2-140)+"px";
+	}
+	</script>
+</head>
+<body>
+	<div id="out">
+		<img src="./img/ma.png" width="240px">
+	</div>
+	<div id="main">
+	<div id="up">
+		<div id="top_menu">
+			<img id="top" src="./img/top.png">
+		</div>
+		<div id="main_body">
+			<audio id = "audio" src="./mp3/1-0.mp3" type="audio/mpeg"></audio>
+			<div id="pic">
+				<img id="flag" src="./img/flag.png">
+				<img id="main_circle" src="./img/main_circle.png" width="100%">
+			</div>
+			<div id="song_div">
+				<span id="song_name">星泽宇</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span id="total_time">00:35</span>
+			</div>
+			<div id="time">
+				<div id="time_one"></div>
+				<div id="time_two"></div>
+			</div>
+			<div class="control" id="control">
+				<table border="0" width="100%">
+					<tr>
+						<td><img id="like"width="33px" src="./img/like.png"></td>
+						<td><img id="play"width="45px" src="./img/start.png"></td>
+						<td><img id="next" onclick="menu_click(3)"width="35px" src="./img/next.png"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="low">
+		<div id="low_mainbody">
+			<div class="menu" id="show">
+				<img src="./img/listen_all.png" width="100%">
+			</div>
+			<div id="hide">
+				<div class="menu" onclick="menu_click(1)">
+					<img id="recommend" src="./img/recommend.png" width="100%s">
+				</div>
+				<img id="attention" src="./img/attention.png" width="100%">
+			</div>
+		</div>
+		<div id="foot">
+			<img src="./img/info.png" width="40%">
+		</div>
+	</div>
+</div>
+	<script type="text/javascript">
+		function check(i){
+			if(i==1)return "星泽宇";
+			if(i==2)return "姚大志";
+			if(i==3)return "马薇薇";
+			if(i==4)return "陈第";
+			if(i==5)return "陈蓓蓓";
+		}
+		function check_time(i){
+			if(i==1)return "58:00";
+			if(i==2)return "20:26";
+			if(i==3)return "29:57";
+			if(i==4)return "37:10";
+			if(i==5)return "29:45";
+		}
+		var tag=0,play_stop=0;
+		var pre;
+		var show_flag=0;
+		var rotate_engle=10;
+		var show = document.getElementById("show");
+		var hide = document.getElementById("hide");
+		var play = document.getElementById("play");
+		var next = document.getElementById("next");
+		var like = document.getElementById("like");
+		var audio = document.getElementById("audio");
+		var menu = document.getElementsByClassName("menu");
+		var song_name = document.getElementById("song_name");
+		var attention = document.getElementById("attention");
+		function reset(){
+			document.getElementById("time_one").style.width="1%";
+			document.getElementById("time_two").style.width="99%";
+			like.src="./img/like.png";
+		}
+		function rotate_circle(i){
+			var rotate_time;
+			if(i==0){
+				rotate_time = setTimeout(function(){
+					document.getElementById("flag").style.webkitTransform = "rotate("+rotate_engle+"deg)";
+				},150);
+			}else{
+				rotate_time = setTimeout(function(){
+					document.getElementById("flag").style.webkitTransform = "rotate(-"+rotate_engle+"deg)";
+				},150);
+			}
+		}
+		attention.onclick=function(){
+			if(show_flag==0){			
+				document.getElementById("out").style.width = document.getElementById("pic").style.width;
+				document.getElementById("out").style.display="block";
+				show_flag=1;
+				document.getElementById("main").style.opacity=0.1;
+				document.getElementById("out").style.opacity=1;
+			}else{
+				document.getElementById("out").style.display="none";
+				document.getElementById("main").style.opacity=1;
+				show_flag=0;
+			}
+		}
+		show.onclick=function(){
+			audio.pause();
+			reset();
+			rotate_circle(1);
+			play.src = "./img/start.png";
+			play_stop=0;
+			tag=0;
+			var index = audio.src.charAt(31);
+			audio.src="./mp3/"+index+"-1.mp3";
+			song_name.innerHTML=check(index);
+			document.getElementById("total_time").innerHTML=check_time(index);
+			pre = (parseInt(Math.random()*5))%5+1;
+			document.getElementById("recommend").src="./img/"+pre+".png";
+			hide.style.display="block";
+			show.style.display="none";
+		}
+
+		play.onclick=function(){
+			play.style.opacity = 0.4;
+			var time_set;
+			var t = setTimeout(function(){
+				if(play_stop==0){
+					rotate_circle(0);
+					play.src = "./img/stop.png";
+					play_stop = 1;
+					audio.play();
+					time_set=setInterval(function(){
+						//document.getElementById("total_time").innerHTML=parseInt(audio.duration)+'s';
+						var length = parseInt((audio.currentTime/audio.duration)*100);
+						document.getElementById("time_one").style.width=length+"%";
+						document.getElementById("time_two").style.width=(100-length)+"%";
+					},500);
+				}else if(play_stop==1){
+					audio.pause();
+					rotate_circle(1);
+					play.src = "./img/start.png";
+					play_stop=0;
+					clearInterval(time_set);
+				}
+				play.style.opacity =1;
+			},200);
+		}
+		like.onclick=function(){
+			if(tag==0){
+				like.style.opacity = 0.4;
+				var t = setTimeout(function(){
+					like.style.opacity =1;
+				},200);
+				like.src="./img/have_like.png";
+				//异步传输喜欢的信息
+				var xmlhttp;
+				xmlhttp=new XMLHttpRequest();
+				xmlhttp.onreadystatechange=function()
+				  {
+				  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				    {
+				    //document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				    }
+				  }
+				xmlhttp.open("GET",'',true);
+				xmlhttp.send();
+				tag=1; //喜欢一次后失效
+			}
+		}
+		function menu_click(i){
+			audio.pause();
+			rotate_circle(1);
+			reset();
+			play.src = "./img/start.png";
+			play_stop=0;
+			//随机歌曲
+			var index;
+			tag=0;
+			song_name.innerHTML=check(pre);
+			document.getElementById("total_time").innerHTML = check_time(pre);
+			audio.src="./mp3/"+pre+"-1.mp3";	
+			pre = parseInt((Math.random()*5))%5+1;
+			document.getElementById("recommend").src="./img/"+pre+".png";
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>随心听</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!--<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+	<style type="text/css">
+		*{
+			padding: 0 0;
+			margin: 0 0 ;
+		}
+		body{
+			background-image: url('./img/background_one.png');
+			background-repeat: repeat;
+		}
+		#main {
+			text-align: center;
+			width: 80%;
+			margin: 0 auto;
+			margin-top: 40px;
+			z-index: 1;
+		}
+		#head{
+			position: fixed;
+			top: 0;
+			height: 40px;
+			width: 100%;
+			background-color: #00ffff;
+			text-align: center;
+		}
+		#footer{
+			position: fixed;
+			bottom: 0;
+			height: 30px;
+			width: 100%;
+			background-color: #00ffff;
+			text-align: center;
+		}
+		#title_img{
+			margin-top: 30px;
+			margin-bottom: 20px;
+			border: solid 5px #0ff;
+		}
+		#btn{
+			border:2px solid;
+			border-radius:25px;
+			-moz-border-radius:25px; /* Old Firefox */
+			margin-top: 4%;
+			width: 60%;
+			margin-left: 20%;
+		}
+		button{
+			border: none;
+			background: none;
+		}
+		#guanzhu_img{
+			margin: 0 auto;
+			clear: both;
+			margin-top: 30px;
+		}
+		#close{
+			float: right;
+		}
+		#out{
+			width: 80%;
+			position: absolute;
+			text-align: center;
+			display: none;
+			left: 10%;
+			z-index: 10;
+		}
+		.play{
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+		#hide{
+			display: none;
+		}
+		#left{
+			display: inline;
+			width: 0%;
+			background-color: blue;
+			float: left;
+			height: 10px;
+		}
+		#right{
+			display: inline;
+			width: 100%;
+			float: left;
+			background-color: red;
+			height: 10px;
+		}
+		table img{
+			width: 30px;
+		}
+		table {
+			border: none;
+			margin: 0 auto;
+			border-spacing:10px;
+		}
+		#table{
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body id="body">
+<div id="head">
+	欢迎收听比逗随心听
+</div>
+<div id = "out">
+		<img id = "close" src="./img/close.png"><br/>
+		<img id = "guanzhu_img" width="200px" src = "./img/potato.png">
+</div>
+<div id="main">
+		<img id="title_img" src = "./img/title.png">
+		<!-- <div>
+			<div id = "left"></div>
+			<div id = "right"></div>
+		</div> -->
+		<div id="table">
+			<table>
+				<tr>
+					<td><img id="like" src ="./img/like.png"></td>
+					<td><img id="play" src ="./img/play.png"></td>
+					<td><img id="pause" src ="./img/pause.png"></td>
+				</tr>
+			</table>
+			<span id="time_last"></span>
+			 / <span id="time"></span>
+		</div>
+		<audio id = "audio" src="index.mp3" type="audio/mpeg">
+		</audio>
+		<img width="200px"src="./img/sound.png" class="play">
+		<div id="hide">
+			<hr style="height:5px;border:none;border-top:3px double blue;" />
+			<img width="200px"src="./img/sound.png" class="play">
+			<img width="200px"src="./img/sound.png" class="play">
+		</div>
+		<div id="btn">
+			<button id="btn_one">点击更多</button>
+		</div>
+</div>
+<!-- <div id="footer">
+	这里是底部
+</div> -->
+<script type="text/javascript">
+//执行随机播放歌曲
+var i;
+(function(){
+	var audio = document.getElementById('audio');
+	i = (parseInt(1000*Math.random()))%3+1;
+	audio.src = "m"+i+".mp3";
+})()
+//定时跳转
+	/*var tag=1,timestart,t;
+	var init = setInterval(function(){
+		timestart = parseInt(audio.currentTime);
+		if(timestart>=1&&tag==1){
+			//audio.removeAttribute('controls');
+			tag=0;
+			t = setTimeout(function(){
+				//window.location.href="http://www.baidu.com";
+			},15000);
+		}
+	},100);
+*/
+//获取页面元素
+	var audio = document.getElementById('audio');
+	var btn_one = document.getElementById('btn_one');
+	var out = document.getElementById("out");
+	var main = document.getElementById("main");
+	var close = document.getElementById("close");
+	var hide = document.getElementById("hide");
+	var like = document.getElementById("like");
+	var play = document.getElementById("play");
+	var pause = document.getElementById("pause");
+	//显示播放时间
+	(function(){
+		var t=setInterval(function(){
+			document.getElementById("time").innerHTML=parseInt(audio.duration);
+			document.getElementById("time_last").innerHTML=parseInt(audio.currentTime);
+			//var length = parseInt((audio.currentTime/audio.duration)*100);
+			//document.getElementById("left").style.width=length+"%";
+			//document.getElementById("right").style.width=(100-length)+"%";
+		},1000);
+	})()
+	btn_one.onclick =function(){
+		//window.location.href="http://115.28.69.135/music/detail.html";
+		hide.style.display = "block";
+		btn_one.innerHTML = "关注比逗";
+		//audio.src = "m1.mp3";
+		btn_one.onclick=function(){
+			out.style.display="block";
+			main.style.opacity=0.2;
+			close.onclick=function(){
+				out.style.display="none";
+				main.style.opacity=1.0;
+			}
+		}
+	};	
+	play.onclick=function(){
+		play.style.opacity = 0.4;
+		var t = setTimeout(function(){
+			play.style.opacity =1;
+		},200);
+		audio.play();
+	}
+	pause.onclick=function(){
+		pause.style.opacity = 0.4;
+		var t = setTimeout(function(){
+			pause.style.opacity =1;
+		},200);
+		audio.pause();
+	}
+	document.getElementsByClassName("play")[0].onclick=function(){
+		audio.src = "m1.mp3";
+		//audio.play();
+	}
+	document.getElementsByClassName("play")[1].onclick=function(){
+		audio.src = "m2.mp3";
+		//audio.play();
+	}
+	document.getElementsByClassName("play")[2].onclick=function(){
+		audio.src = "m3.mp3";
+		//audio.play();
+	}
+	//喜欢按钮异步发送喜欢信息
+	like.onclick=function(){
+		like.style.opacity = 0.4;
+		var t = setTimeout(function(){
+			like.style.opacity =1;
+		},200);
+		var xmlhttp;
+		xmlhttp=new XMLHttpRequest();
+		xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    //document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+		    }
+		  }
+		xmlhttp.open("GET",'',true);
+		xmlhttp.send();
+		//只能喜欢一次
+		like.onclick = null;
+	}
+</script>
+<body>
+</html>
