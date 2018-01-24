@@ -9,3 +9,4 @@
 4. 在球面生成完全均匀的点，方法参考自[知乎](https://zhuanlan.zhihu.com/p/25998937?group_id=829506039526354944) - **sphereSample.m**
 5. 哈希表实现，分别实现C语言和C++版本。
 6. 实现了一个网页音乐播放器的UI - **webMusicPlayer**
+7. 对输入的`off`文件进行`pca`转换并输出成`off`文件。	- **convertPca.m**
