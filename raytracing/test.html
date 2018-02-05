@@ -1,0 +1,169 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript" src="Color.js"></script>
+<script type="text/javascript" src="Vector3.js"></script>
+<script type="text/javascript" src="Ray3.js"></script>
+<script type="text/javascript" src="IntersectResult.js"></script>
+<script type="text/javascript" src="PerspectiveCamera.js"></script>
+<script type="text/javascript" src="orthoCamera.js"></script>
+<script type="text/javascript" src="Sphere.js"></script>
+<script type="text/javascript" src="Plane.js"></script>
+<script type="text/javascript" src="CheckerMaterial.js"></script>
+<script type="text/javascript" src="PhongMaterial.js"></script>
+<script type="text/javascript" src="Union.js"></script>
+</head>
+<canvas width="512" height="512" id="testCanvas"></canvas>
+<script type="text/javascript">
+function rayTraceRecursive(scene, ray, maxReflect) {
+    var result = scene.intersect(ray);  
+    if (result.geometry) {
+        var reflectiveness = result.geometry.material.reflectiveness;
+        var color = result.geometry.material.sample(ray, result.position, result.normal);
+        color = color.multiply(1 - reflectiveness);		// 原始的比重
+        
+        if (reflectiveness > 0 && maxReflect > 0) {
+            var r = result.normal.multiply(-2 * result.normal.dot(ray.direction)).add(ray.direction);
+            ray = new Ray3(result.position, r);
+            var reflectedColor = rayTraceRecursive(scene, ray, maxReflect - 1);	// 反射后的比重
+            color = color.add(reflectedColor.multiply(reflectiveness));
+        }
+        return color;
+    }
+    else
+        return Color.black;
+}
+</script>
+
+
+<script type="text/javascript">
+	var canvas = document.getElementById("testCanvas");
+	var ctx = canvas.getContext("2d");
+	var w = canvas.attributes.width.value;
+	var h = canvas.attributes.height.value;
+	ctx.fillStyle = "rgb(0,0,0)";
+	ctx.fillRect(0, 0, w, h);
+	var imgdata = ctx.getImageData(0, 0, w, h);
+	var pixels = imgdata.data;
+// 透视投影
+	var cam = new PerspectiveCamera(new Vector3(0,1.3,3),new Vector3(0,0,-1),new Vector3(0,1,0),75);
+	cam.initialize();
+
+// 正交投影
+	var orthoCamera = new orthoCamera(new Vector3(0,0,1),new Vector3(0,0,-1),new Vector3(0,1,0),1,1);
+	orthoCamera.initialize();
+
+// 初始化一个球体
+	var sph1 = new Sphere(new Vector3(0.3,0.2,0),0.3);
+	var sph2 = new Sphere(new Vector3(-0.3,0.2,0),0.3);
+	//sph.initialize();
+
+// 初始化一个平面
+	var plane0 = new Plane(new Vector3(0,1,0),-1);
+	var plane1 = new Plane(new Vector3(0,0,1),-105);
+	var plane2 = new Plane(new Vector3(1,0,0),-3);
+	var plane3 = new Plane(new Vector3(-1,0,0),-5);
+	var plane4 = new Plane(new Vector3(0,-1,0),1);
+	//plane.initialize();
+
+// 初始化格子材质
+	var check = new CheckerMaterial(1,0.2);
+	var checky = new CheckerMaterialy(1,0.2);
+// 材质
+	var phone1 = new PhongMaterial(new Vector3(1,1,0),new Vector3(1,1,0),10,0.3);
+	var phone2 = new PhongMaterial(new Vector3(1,0,0),new Vector3(1,0,0),10,0.3);
+	sph1.material = phone1;
+	sph2.material = phone2;
+	plane1.material = phone1;
+	plane2.material = phone2;
+	plane3.material = checky;
+	plane0.material = check;
+	plane4.material = check;
+	var union = new Union([plane0,plane1,plane2,sph1,sph2]);
+	union.initialize();
+	var i = 0;
+	for (var y = 0; y < h; y++)
+	    for (var x = 0; x < w; x++)
+	    {
+	    	var sx = x/w;
+	    	var sy = 1-y/h;
+	        var ray = cam.generateRay(sx,sy);
+	        //var ray = orthoCamera.generateRay(sx,sy);
+	        //var interset1 = plane.intersect(ray);
+	        //var interset2 = sph.intersect(ray);
+	        var color = rayTraceRecursive(union,ray,3);
+	        //console.log(color);
+	        //var interset = union.intersect(ray);
+	        //var color = interset.geometry.material.sample(ray,interset.position,interset.normal);
+	        pixels[i++] = color.r * 255;
+            pixels[i++] = color.g * 255;
+            pixels[i++] = color.b * 255;
+            pixels[i++] = 255;
+	        /*if(interset.geometry)
+	        {
+	        	//console.log(interset.geometry);
+	        	var color = interset.geometry.material.sample(ray,interset.position,interset.normal);
+	        	//console.log(color);
+	        	pixels[i++] = color.r*255;
+		        pixels[i++] = color.g*255;
+		        pixels[i++] = color.b*255;
+		        pixels[i++] = 255;
+	        }
+	        else
+	        {
+	        	pixels[i++] = 0;
+		        pixels[i++] = 0;
+		        pixels[i++] = 0;
+		        pixels[i++] = 255;
+	        }
+	        
+	        if(interset1.geometry || interset2.geometry)
+	        {
+	        	if(interset1.geometry && interset2.geometry)
+	        	{
+					var dis1 = interset1.distance;
+		        	var dis2 = interset1.distance;
+		        	if(dis1<dis2)
+		        	{
+		        		var c = check.sample(ray,interset1.position,ray);
+				        pixels[i++] = c.r*255;
+				        pixels[i++] = c.g*255;
+				        pixels[i++] = c.b*255;
+				        pixels[i++] = 255;
+		        	}
+		        	else
+		        	{
+		        		pixels[i++] = (interset2.normal.x+1) * 128;
+				        pixels[i++] = (interset2.normal.y+1) * 128;
+				        pixels[i++] = (interset2.normal.z+1) * 128;
+				        pixels[i++] = 255;
+		        	}
+	        	}
+	        	else if(interset1.geometry)
+	        	{
+	        		var c = check.sample(ray,interset1.position,ray);
+			        pixels[i++] = c.r*255;
+			        pixels[i++] = c.g*255;
+			        pixels[i++] = c.b*255;
+			        pixels[i++] = 255;
+	        	}
+	        	else
+	        	{
+	        		pixels[i++] = (interset2.normal.x+1) * 128;
+			        pixels[i++] = (interset2.normal.y+1) * 128;
+			        pixels[i++] = (interset2.normal.z+1) * 128;
+			        pixels[i++] = 255;
+	        	}	        		       
+	        }
+	        else
+	        {
+	        	pixels[i++] = 0;
+		        pixels[i++] = 0;
+		        pixels[i++] = 0;
+		        pixels[i++] = 255;
+	        }*/
+	    }
+	ctx.putImageData(imgdata, 0, 0);
+</script>
+</html>
