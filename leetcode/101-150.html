@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>101-150.md—F:\e\算法\leetcode刷题记录</title>
+    <style type="text/css">
+    html{font-family: sans-serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%}body{margin: 0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display: block}audio,canvas,progress,video{display: inline-block;vertical-align: baseline}audio:not([controls]){display: none;height: 0}[hidden],template{display: none}a{background: transparent}a:active,a:hover{outline: 0}abbr[title]{border-bottom: 1px dotted}b,strong{font-weight: bold}dfn{font-style: italic}h1{font-size: 2em;margin: 0.67em 0}mark{background: #ff0;color: #000}small{font-size: 80%}sub,sup{font-size: 75%;line-height: 0;position: relative;vertical-align: baseline}sup{top: -0.5em}sub{bottom: -0.25em}img{border: 0}svg:not(:root){overflow: hidden}figure{margin: 1em 40px}hr{box-sizing: content-box;height: 0}pre{overflow: auto}code,kbd,pre,samp{font-family: monospace, monospace;font-size: 1em}button,input,optgroup,select,textarea{color: inherit;font: inherit;margin: 0}button{overflow: visible}button,select{text-transform: none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance: button;cursor: pointer}button[disabled],html input[disabled]{cursor: default}button::-moz-focus-inner,input::-moz-focus-inner{border: 0;padding: 0}input{line-height: normal}input[type="checkbox"],input[type="radio"]{box-sizing: border-box;padding: 0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height: auto}input[type="search"]{-webkit-appearance: textfield;box-sizing: content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance: none}fieldset{border: 1px solid #c0c0c0;margin: 0 2px;padding: 0.35em 0.625em 0.75em}legend{border: 0;padding: 0}textarea{overflow: auto}optgroup{font-weight: bold}table{border-collapse: collapse;border-spacing: 0}td,th{padding: 0}*{box-sizing: border-box}input,select,textarea,button{font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"}body{min-width: 1020px;font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";color: #333;background-color: #fff}a{color: #4183c4;text-decoration: none}a:hover,a:active{text-decoration: underline}hr,.rule{height: 0;margin: 15px 0;overflow: hidden;background: transparent;border: 0;border-bottom: 1px solid #ddd}hr:before,.rule:before{display: table;content: ""}hr:after,.rule:after{display: table;clear: both;content: ""}h1,h2,h3,h4,h5,h6{margin-top: 15px;margin-bottom: 15px;line-height: 1.1}h1{font-size: 30px}h2{font-size: 21px}h3{font-size: 16px}h4{font-size: 14px}h5{font-size: 12px}h6{font-size: 11px}small{font-size: 90%}blockquote{margin: 0}.lead{margin-bottom: 30px;font-size: 20px;font-weight: 300;color: #555}.text-muted{color: #999}.text-danger{color: #bd2c00}.text-emphasized{font-weight: bold;color: #333}ul,ol{padding: 0;margin-top: 0;margin-bottom: 0}ol ol,ul ol{list-style-type: lower-roman}ul ul ol,ul ol ol,ol ul ol,ol ol ol{list-style-type: lower-alpha}dd{margin-left: 0}tt,code{font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;font-size: 12px}pre{margin-top: 0;margin-bottom: 0;font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace}#realtime .status{overflow: visible;position: absolute;top: -5px;left: 0;background: url("/public/images/github-status.png");width: 26px;height: 26px;display: block;margin: 0 5px 0 0}#realtime .up{background-position: 0 0}#realtime .problem{background-position: 0 -53px}#realtime .down{background-position: 0 -26px}.container{max-width: 920px;margin: 0 auto 20px auto}#header{background: #FAFAFA;background: -moz-linear-gradient(#FAFAFA, #EAEAEA);background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea')";border-bottom: 1px solid #CACACA;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4),0 0 10px rgba(0, 0, 0, 0.1)}#markup{padding: 3px}#markup article{padding-top: 30px}.markdown-body{overflow: hidden;font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;font-size: 16px;line-height: 1.6;word-wrap: break-word}.markdown-body>*:first-child{margin-top: 0 !important}.markdown-body>*:last-child{margin-bottom: 0 !important}.markdown-body .absent{color: #c00}.markdown-body .anchor{position: absolute;top: 0;left: 0;display: block;padding-right: 6px;padding-left: 30px;margin-left: -30px}.markdown-body .anchor:focus{outline: none}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{position: relative;margin-top: 1em;margin-bottom: 16px;font-weight: bold;line-height: 1.4}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{display: none;color: #000;vertical-align: middle}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{padding-left: 8px;margin-left: -30px;text-decoration: none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{display: inline-block}.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code{font-size: inherit}.markdown-body h1{padding-bottom: 0.3em;font-size: 2.25em;line-height: 1.2;border-bottom: 1px solid #eee}.markdown-body h1 .anchor{line-height: 1}.markdown-body h2{padding-bottom: 0.3em;font-size: 1.75em;line-height: 1.225;border-bottom: 1px solid #eee}.markdown-body h2 .anchor{line-height: 1}.markdown-body h3{font-size: 1.5em;line-height: 1.43}.markdown-body h3 .anchor{line-height: 1.2}.markdown-body h4{font-size: 1.25em}.markdown-body h4 .anchor{line-height: 1.2}.markdown-body h5{font-size: 1em}.markdown-body h5 .anchor{line-height: 1.1}.markdown-body h6{font-size: 1em;color: #777}.markdown-body h6 .anchor{line-height: 1.1}.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre{margin-top: 0;margin-bottom: 16px}.markdown-body hr{height: 4px;padding: 0;margin: 16px 0;background-color: #e7e7e7;border: 0 none}.markdown-body ul,.markdown-body ol{padding-left: 2em}.markdown-body ul.no-list,.markdown-body ol.no-list{padding: 0;list-style-type: none}.markdown-body ul ul,.markdown-body ul ol,.markdown-body ol ol,.markdown-body ol ul{margin-top: 0;margin-bottom: 0}.markdown-body li>p{margin-top: 16px}.markdown-body dl{padding: 0}.markdown-body dl dt{padding: 0;margin-top: 16px;font-size: 1em;font-style: italic;font-weight: bold}.markdown-body dl dd{padding: 0 16px;margin-bottom: 16px}.markdown-body blockquote{padding: 0 15px;color: #777;border-left: 4px solid #ddd}.markdown-body blockquote>:first-child{margin-top: 0}.markdown-body blockquote>:last-child{margin-bottom: 0}.markdown-body table{display: block;width: 100%;overflow: auto;word-break: normal;word-break: keep-all}.markdown-body table th{font-weight: bold}.markdown-body table th,.markdown-body table td{padding: 6px 13px;border: 1px solid #ddd}.markdown-body table tr{background-color: #fff;border-top: 1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color: #f8f8f8}.markdown-body img{max-width: 100%;box-sizing: border-box}.markdown-body span.frame{display: block;overflow: hidden}.markdown-body span.frame>span{display: block;float: left;width: auto;padding: 7px;margin: 13px 0 0;overflow: hidden;border: 1px solid #ddd}.markdown-body span.frame span img{display: block;float: left}.markdown-body span.frame span span{display: block;padding: 5px 0 0;clear: both;color: #333}.markdown-body span.align-center{display: block;overflow: hidden;clear: both}.markdown-body span.align-center>span{display: block;margin: 13px auto 0;overflow: hidden;text-align: center}.markdown-body span.align-center span img{margin: 0 auto;text-align: center}.markdown-body span.align-right{display: block;overflow: hidden;clear: both}.markdown-body span.align-right>span{display: block;margin: 13px 0 0;overflow: hidden;text-align: right}.markdown-body span.align-right span img{margin: 0;text-align: right}.markdown-body span.float-left{display: block;float: left;margin-right: 13px;overflow: hidden}.markdown-body span.float-left span{margin: 13px 0 0}.markdown-body span.float-right{display: block;float: right;margin-left: 13px;overflow: hidden}.markdown-body span.float-right>span{display: block;margin: 13px auto 0;overflow: hidden;text-align: right}.markdown-body code,.markdown-body tt{padding: 0;padding-top: 0.2em;padding-bottom: 0.2em;margin: 0;font-size: 85%;background-color: rgba(0,0,0,0.04);border-radius: 3px}.markdown-body code:before,.markdown-body code:after,.markdown-body tt:before,.markdown-body tt:after{letter-spacing: -0.2em;content: "\00a0"}.markdown-body code br,.markdown-body tt br{display: none}.markdown-body del code{text-decoration: inherit}.markdown-body pre>code{padding: 0;margin: 0;font-size: 100%;word-break: normal;white-space: pre;background: transparent;border: 0}.markdown-body .highlight{margin-bottom: 16px}.markdown-body .highlight pre,.markdown-body pre{padding: 16px;overflow: auto;font-size: 85%;line-height: 1.45;background-color: #f7f7f7;border-radius: 3px}.markdown-body .highlight pre{margin-bottom: 0;word-break: normal}.markdown-body pre{word-wrap: normal}.markdown-body pre code,.markdown-body pre tt{display: inline;max-width: initial;padding: 0;margin: 0;overflow: initial;line-height: inherit;word-wrap: normal;background-color: transparent;border: 0}.markdown-body pre code:before,.markdown-body pre code:after,.markdown-body pre tt:before,.markdown-body pre tt:after{content: normal}.markdown-body kbd{display: inline-block;padding: 3px 5px;font-size: 11px;line-height: 10px;color: #555;vertical-align: middle;background-color: #fcfcfc;border: solid 1px #ccc;border-bottom-color: #bbb;border-radius: 3px;box-shadow: inset 0 -1px 0 #bbb}.codehilite{background: #ffffff}.codehilite .c{color: #999988;font-style: italic}.codehilite .err{color: #a61717;background-color: #e3d2d2}.codehilite .k{color: #000000;font-weight: bold}.codehilite .o{color: #000000;font-weight: bold}.codehilite .cm{color: #999988;font-style: italic}.codehilite .cp{color: #999999;font-weight: bold}.codehilite .c1{color: #999988;font-style: italic}.codehilite .cs{color: #999999;font-weight: bold;font-style: italic}.codehilite .gd{color: #000000;background-color: #ffdddd}.codehilite .gd .x{color: #000000;background-color: #ffaaaa}.codehilite .ge{color: #000000;font-style: italic}.codehilite .gr{color: #aa0000}.codehilite .gh{color: #999999}.codehilite .gi{color: #000000;background-color: #ddffdd}.codehilite .gi .x{color: #000000;background-color: #aaffaa}.codehilite .go{color: #888888}.codehilite .gp{color: #555555}.codehilite .gs{font-weight: bold}.codehilite .gu{color: #aaaaaa}.codehilite .gt{color: #aa0000}.codehilite .kc{color: #000000;font-weight: bold}.codehilite .kd{color: #000000;font-weight: bold}.codehilite .kp{color: #000000;font-weight: bold}.codehilite .kr{color: #000000;font-weight: bold}.codehilite .kt{color: #445588;font-weight: bold}.codehilite .m{color: #009999}.codehilite .s{color: #d14}.codehilite .na{color: #008080}.codehilite .nb{color: #0086B3}.codehilite .nc{color: #445588;font-weight: bold}.codehilite .no{color: #008080}.codehilite .ni{color: #800080}.codehilite .ne{color: #990000;font-weight: bold}.codehilite .nf{color: #990000;font-weight: bold}.codehilite .nn{color: #555555}.codehilite .nt{color: #000080}.codehilite .nv{color: #008080}.codehilite .ow{color: #000000;font-weight: bold}.codehilite .w{color: #bbbbbb}.codehilite .mf{color: #009999}.codehilite .mh{color: #009999}.codehilite .mi{color: #009999}.codehilite .mo{color: #009999}.codehilite .sb{color: #d14}.codehilite .sc{color: #d14}.codehilite .sd{color: #d14}.codehilite .s2{color: #d14}.codehilite .se{color: #d14}.codehilite .sh{color: #d14}.codehilite .si{color: #d14}.codehilite .sx{color: #d14}.codehilite .sr{color: #009926}.codehilite .s1{color: #d14}.codehilite .ss{color: #990073}.codehilite .bp{color: #999999}.codehilite .vc{color: #008080}.codehilite .vg{color: #008080}.codehilite .vi{color: #008080}.codehilite .il{color: #009999}
+    </style>
+    <style type="text/css">
+      .markdown-body hr{background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC")}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="markup">
+        <article id="content" class="markdown-body">
+          <div class="toc">
+<ul>
+<li><a href="#101-symmetric-tree">101 Symmetric Tree 【二叉树】</a></li>
+<li><a href="#102-binary-tree-level-order-traversal">102 Binary Tree Level Order Traversal 【二叉树】</a><ul>
+<li><a href="#_1">自己的方法</a></li>
+<li><a href="#_2">别人的方法一</a></li>
+<li><a href="#_3">别人的方法二</a></li>
+</ul>
+</li>
+<li><a href="#103-binary-tree-zigzag-level-order-traversal">103 Binary Tree Zigzag Level Order Traversal 【二叉树】</a></li>
+<li><a href="#104-maximum-depth-of-binary-tree">104 Maximum Depth of Binary Tree 【二叉树】</a></li>
+<li><a href="#110-balanced-binary-tree">110 Balanced Binary Tree 【二叉树】</a></li>
+<li><a href="#112-path-sum">112 Path Sum 【二叉树】</a></li>
+<li><a href="#113-path-sum-ii">113 Path Sum II 【二叉树】</a></li>
+<li><a href="#115-distinct-subsequences">115 Distinct Subsequences 【动态规划】</a><ul>
+<li><a href="#_4">动态规划解法</a></li>
+<li><a href="#_5">深度优先搜索</a></li>
+</ul>
+</li>
+<li><a href="#118-pascals-triangle">118 Pascal's Triangle</a></li>
+<li><a href="#119-pascals-triangle-ii">119 Pascal's Triangle II</a></li>
+<li><a href="#120-triangle">120 Triangle 【动态规划】</a></li>
+<li><a href="#121-best-time-to-buy-and-sell-stock">121 Best Time to Buy and Sell Stock 【动态规划】</a></li>
+<li><a href="#122-best-time-to-buy-and-sell-stock-ii">122 Best Time to Buy and Sell Stock II 【贪心】</a><ul>
+<li><a href="#_6">方法一</a></li>
+<li><a href="#_7">方法二 超时</a></li>
+</ul>
+</li>
+<li><a href="#123-best-time-to-buy-and-sell-stock-iii">123 Best Time to Buy and Sell Stock III 【动态规划】</a><ul>
+<li><a href="#_8">方法一  超时</a></li>
+<li><a href="#_9">方法二  通过</a></li>
+<li><a href="#_10">方法三 通用方法</a></li>
+</ul>
+</li>
+<li><a href="#124-binary-tree-maximum-path-sum">124 Binary Tree Maximum Path Sum 【类似动态规划】</a></li>
+<li><a href="#125-valid-palindrome">125 Valid Palindrome</a></li>
+<li><a href="#126-word-ladder-ii">126 Word Ladder II 【搜索最短路径，好题】</a></li>
+<li><a href="#127-word-ladder">127 Word Ladder 【好题，图搜索】</a></li>
+<li><a href="#128-longest-consecutive-sequence">128 Longest Consecutive Sequence 【时间换空间】</a></li>
+<li><a href="#129-sum-root-to-leaf-numbers">129 Sum Root to Leaf Numbers 【二叉树】</a></li>
+<li><a href="#134-gas-station">134 Gas Station 【思路】</a></li>
+<li><a href="#135-candy">135 Candy 【好题，思路】</a></li>
+<li><a href="#144-binary-tree-preorder-traversal">144 Binary Tree Preorder Traversal 【二叉树非递归遍历】</a></li>
+<li><a href="#145-binary-tree-postorder-traversal">145 Binary Tree Postorder Traversal</a></li>
+<li><a href="#147-insertion-sort-list">147 Insertion Sort List 【插入排序】</a><ul>
+<li><a href="#_11">不使用原链表，较简单</a></li>
+<li><a href="#_12">使用原链表</a></li>
+</ul>
+</li>
+<li><a href="#148-sort-list">148 Sort List 【排序链表】</a><ul>
+<li><a href="#stlsort">STL中的sort</a></li>
+<li><a href="#_13">归并排序</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="101-symmetric-tree">101 Symmetric Tree 【二叉树】</h1>
+<ul>
+<li>二叉树的镜像</li>
+</ul>
+<div class="codehilite"><pre>/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*    int val;
+*    TreeNode *left;
+*    TreeNode *right;
+*    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+class Solution {
+public:
+    bool solve(TreeNode * left, TreeNode * right)
+    {
+        if (left == NULL &amp;&amp; right == NULL)
+            return true;
+        else if (left &amp;&amp; right)
+        {
+            if (left-&gt;val != right-&gt;val)
+                return false;
+// 子树的子树进行对比
+            return solve(left-&gt;left, right-&gt;right) &amp;&amp; solve(left-&gt;right, right-&gt;left);
+        }
+        return false;
+    }
+
+    bool isSymmetric(TreeNode* root) {
+        if (root == NULL)
+            return true;
+        return solve(root-&gt;left, root-&gt;right);
+    }
+
+};
+</pre></div>
+
+
+<h1 id="102-binary-tree-level-order-traversal">102 Binary Tree Level Order Traversal 【二叉树】</h1>
+<h2 id="_1">自己的方法</h2>
+<ul>
+<li>二叉树的层次遍历</li>
+<li>队列，每一行插入一个分隔符</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) {
+        vector&lt;vector&lt;int&gt; &gt; vvi;
+        if (root == NULL)
+            return vvi;
+        queue&lt;TreeNode *&gt; q;
+        q.push(root);
+        q.push(NULL);     // 插入分隔符   
+        vector&lt;int&gt; v;
+        while (!q.empty())
+        {
+            if (q.front() == NULL)
+                break;
+            TreeNode * tmp = q.front();
+            q.pop();
+            v.push_back(tmp-&gt;val);
+            if (tmp-&gt;left)
+                q.push(tmp-&gt;left);
+            if (tmp-&gt;right)
+                q.push(tmp-&gt;right);
+            if (q.front() == NULL)
+            {
+                vvi.push_back(v);
+                v.clear();
+                q.pop();
+                q.push(NULL);
+            }
+        }
+        return vvi;
+    }
+};
+</pre></div>
+
+
+<h2 id="_2">别人的方法一</h2>
+<ul>
+<li>每次把一层的节点全部扩展完毕</li>
+</ul>
+<div class="codehilite"><pre>// Iterative
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt; &gt; levelOrder(TreeNode *root) {
+        vector&lt;vector&lt;int&gt; &gt; res;
+        if (root == NULL) return res;
+
+        queue&lt;TreeNode*&gt; q;
+        q.push(root);
+        while (!q.empty()) {
+            vector&lt;int&gt; oneLevel;
+            int size = q.size();
+            // 扩展这一层的全部节点
+            for (int i = 0; i &lt; size; ++i) {
+                TreeNode *node = q.front();
+                q.pop();
+                oneLevel.push_back(node-&gt;val);
+                if (node-&gt;left) q.push(node-&gt;left);
+                if (node-&gt;right) q.push(node-&gt;right);
+            }
+            res.push_back(oneLevel);
+        }
+        return res;
+    }
+};
+</pre></div>
+
+
+<h2 id="_3">别人的方法二</h2>
+<ul>
+<li>使用一个变量记录层数</li>
+</ul>
+<div class="codehilite"><pre>// Recursive
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) {
+        vector&lt;vector&lt;int&gt; &gt; res;
+        levelorder(root, 0, res);
+        return res;
+    }
+    void levelorder(TreeNode *root, int level, vector&lt;vector&lt;int&gt; &gt; &amp;res) {
+        if (!root) return;
+        if (res.size() == level) res.push_back({});
+        res[level].push_back(root-&gt;val);
+        if (root-&gt;left) levelorder(root-&gt;left, level + 1, res);
+        if (root-&gt;right) levelorder(root-&gt;right, level + 1, res);
+    }
+};
+</pre></div>
+
+
+<h1 id="103-binary-tree-zigzag-level-order-traversal">103 Binary Tree Zigzag Level Order Traversal 【二叉树】</h1>
+<ul>
+<li>Z字形打印二叉树</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; zigzagLevelOrder(TreeNode* root) {
+        vector&lt;vector&lt;int&gt; &gt; vvi;
+        vector&lt;int&gt; v;
+        if(!root)
+            return vvi;
+        queue&lt;TreeNode *&gt; qt;
+        qt.push(root);
+        bool f = true;
+        while (!qt.empty())
+        {
+            int size = qt.size();
+            for (int i = 0; i &lt; size; i++)
+            {
+                TreeNode * tmp = qt.front();
+                qt.pop();
+                v.push_back(tmp-&gt;val);
+                if (tmp-&gt;left)
+                    qt.push(tmp-&gt;left);
+                if (tmp-&gt;right)
+                    qt.push(tmp-&gt;right);
+            }
+            // 是否反转
+            if (f)
+            {
+                f = false;
+            }
+            else
+            {
+                f = true;
+                reverse(v.begin(),v.end());
+            }
+            vvi.push_back(v);
+            v.clear();
+        }
+        return vvi;
+    }
+};
+</pre></div>
+
+
+<h1 id="104-maximum-depth-of-binary-tree">104 Maximum Depth of Binary Tree 【二叉树】</h1>
+<ul>
+<li>二叉树的最大深度</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if (root == NULL)
+            return 0;
+        return max(maxDepth(root-&gt;left), maxDepth(root-&gt;right)) + 1;
+    }
+};
+</pre></div>
+
+
+<h1 id="110-balanced-binary-tree">110 Balanced Binary Tree 【二叉树】</h1>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int height(TreeNode *root)
+    {
+        if (root == NULL)
+            return 0;
+        return max(height(root-&gt;left), height(root-&gt;right)) + 1;
+    }
+
+    bool isBalanced(TreeNode* root) {
+        if (root == NULL)
+            return true;
+        int h1 = height(root-&gt;left);
+        int h2 = height(root-&gt;right);
+        // 当前节点，已经左右子节点是否都是平衡的
+        if (abs(h1 - h2) &lt;= 1 &amp;&amp; isBalanced(root-&gt;left) &amp;&amp; isBalanced(root-&gt;right))
+            return true;
+        return false;
+    }
+};
+</pre></div>
+
+
+<h1 id="112-path-sum">112 Path Sum 【二叉树】</h1>
+<ul>
+<li>是否有满足<code>sum</code>值的路径</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool solve(TreeNode * r, int sum, int cnt)
+    {
+        // 注意根为空的时候
+        if (r == NULL)
+            return false;
+        // 判断是否为叶子节点
+        if (r-&gt;left == NULL &amp;&amp; r-&gt;right == NULL)
+        {
+            if (cnt + r-&gt;val == sum)
+                return true;
+            return false;
+        }
+        bool f = false;
+        if (r-&gt;left != NULL)
+        {
+            f = f || solve(r-&gt;left, sum, cnt + r-&gt;val);
+        }
+        if (r-&gt;right != NULL)
+        {
+            f = f || solve(r-&gt;right, sum, cnt + r-&gt;val);
+        }
+        return f;
+    }
+
+    bool hasPathSum(TreeNode* root, int sum) {
+        return solve(root, sum, 0);
+    }
+};
+</pre></div>
+
+
+<h1 id="113-path-sum-ii">113 Path Sum II 【二叉树】</h1>
+<ul>
+<li>常规的二叉树搜索</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt; &gt; vvi;
+    void solve(TreeNode * r, int sum, int cnt,vector&lt;int&gt; &amp;v)
+    {
+        if (r == NULL)
+            return;
+        if ( r-&gt;left == NULL &amp;&amp; r-&gt;right == NULL)
+        {
+            if (cnt + r-&gt;val == sum)
+            {
+                v.push_back(r-&gt;val);
+                vvi.push_back(v);
+                v.pop_back();
+            }
+            return;
+        }
+        v.push_back(r-&gt;val);
+        if (r-&gt;left != NULL)
+        {
+            solve(r-&gt;left, sum, cnt + r-&gt;val,v);
+        }
+        if (r-&gt;right != NULL)
+        {
+            solve(r-&gt;right, sum, cnt + r-&gt;val,v);
+        }
+        v.pop_back();
+    }
+
+    vector&lt;vector&lt;int&gt;&gt; pathSum(TreeNode* root, int sum) {
+        vvi.clear();
+        vector&lt;int&gt; v;
+        solve(root, sum,0,v);
+        return vvi;
+    }
+};
+</pre></div>
+
+
+<h1 id="115-distinct-subsequences">115 Distinct Subsequences 【动态规划】</h1>
+<h2 id="_4">动态规划解法</h2>
+<ul>
+<li><code>f[i][j]</code>,计算<code>s</code>前<code>i</code>个组成的串中子序列等于<code>t</code>的前<code>j</code>个组成的串的个数</li>
+<li>转移方程： <code>f[i][j] = f[i][j-1] + f[i-1][j-1]</code>(if 该位置相等)</li>
+<li>按行进行填表</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int len1 = s.size();
+        int len2 = t.size();
+        if (len1 &lt; len2)
+            return 0;
+        int ** f = new int*[len2];
+        for (int i = 0; i &lt; len2; i++)
+        {
+            f[i] = new int[len1];
+            memset(f[i], 0, sizeof(int)*len1);
+        }
+        // 填充第一行
+        if (s[0] == t[0])
+            f[0][0] = 1;
+        for (int i = 1; i &lt; len1; i++)
+        {
+            f[0][i] += f[0][i - 1];
+            if (s[i] == t[0])
+                f[0][i]++;
+        }
+        for (int i = 1; i &lt; len2; i++)
+        {
+            for (int j = i; j &lt; len1; j++)
+            {
+                f[i][j] += f[i][j - 1];
+                if (t[i] == s[j])
+                {
+                    f[i][j] += f[i - 1][j - 1];
+                }
+            }
+        }
+        return f[len2 - 1][len1 - 1];
+    }
+};
+</pre></div>
+
+
+<h2 id="_5">深度优先搜索</h2>
+<ul>
+<li>时间会超时</li>
+<li>建立一个图，每个S的字母为一个节点</li>
+<li>每个节点后后面的字母存在一条边</li>
+<li>进行深度优先搜索，搜到T的长度时比较是否相等。</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    stack&lt;char&gt; ss;
+    int solve(string S, string T, int idx){
+        if (ss.size() &lt; T.size()){
+            int t = 0;
+            for (int i = idx; i &lt; S.size(); i++){
+                ss.push(S[i]);
+                t+=solve(S, T, i+1);
+                ss.pop();
+            }
+            return t;
+        }
+// 深度优先搜索到的长度已经有T的长度了
+        else{
+            stack&lt;char&gt; tmp = ss;
+            string x;
+            while (!tmp.empty()){
+                x = tmp.top()+x;
+                tmp.pop();
+            }
+            if (x == T)
+                return 1;
+            return 0;
+        }
+    }
+    int numDistinct(string S, string T) {
+        while(!ss.empty())ss.pop();
+        return solve(S, T, 0);
+    }
+};
+</pre></div>
+
+
+<h1 id="118-pascals-triangle">118 Pascal's Triangle</h1>
+<ul>
+<li><code>0</code>和<code>1</code>的特殊情况</li>
+<li>反向叠加，只需要一个数组</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; generate(int numRows) {
+        vector&lt;vector&lt;int&gt; &gt; vvi;
+        if (numRows == 0)
+            return vvi;
+        vector&lt;int&gt; v;
+        v.push_back(1);
+        vvi.push_back(v);
+        if (numRows == 1)
+            return vvi;
+        for (int i = 1; i &lt; numRows; i++)
+        {
+            v.push_back(1);
+            // 反向的增加，只需要一个数组
+            for (int j = i - 1; j &gt; 0; j--)
+            {
+                v[j] = v[j] + v[j - 1];
+            }
+            v[0] = 1;
+            vvi.push_back(v);
+        }
+        return vvi;
+    }
+};
+</pre></div>
+
+
+<h1 id="119-pascals-triangle-ii">119 Pascal's Triangle II</h1>
+<ul>
+<li>注意数字加一，题目限制</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    vector&lt;int&gt; getRow(int rowIndex) {
+        rowIndex++;
+        vector&lt;int&gt; v;
+        if (rowIndex == 0)
+            return v;
+        v.push_back(1);
+        if (rowIndex == 1)
+            return v;
+        for (int i = 1; i &lt; rowIndex; i++)
+        {
+            v.push_back(1);
+            for (int j = i - 1; j &gt; 0; j--)
+            {
+                v[j] = v[j] + v[j - 1];
+            }
+        }
+        return v;
+    }
+};
+</pre></div>
+
+
+<h1 id="120-triangle">120 Triangle 【动态规划】</h1>
+<ul>
+<li>简单动态规划</li>
+<li>转移方程 <code>f[i][j] += min(f[i-1][j-1],f[i-1][j])</code></li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int minimumTotal(vector&lt;vector&lt;int&gt;&gt;&amp; triangle) {
+        if(triangle.size()==0)
+            return 0;
+        int sum = INT_MAX;
+        for (int i = 1; i &lt; triangle.size(); i++)
+        {
+            triangle[i][0] += triangle[i - 1][0];
+            for (int j = 1; j &lt; triangle[i].size()-1; j++)
+            {
+                triangle[i][j] += min(triangle[i - 1][j - 1], triangle[i - 1][j]);
+            }
+            triangle[i][triangle[i].size() - 1] += triangle[i - 1][triangle[i].size() - 2];
+        }
+        for (int i = 0; i &lt; triangle[triangle.size() - 1].size(); i++)
+            sum = min(sum, triangle[triangle.size() - 1][i]);
+        return sum;
+        }
+};
+</pre></div>
+
+
+<h1 id="121-best-time-to-buy-and-sell-stock">121 Best Time to Buy and Sell Stock 【动态规划】</h1>
+<ul>
+<li>http://blog.csdn.net/ljiabin/article/details/44900389</li>
+<li><strong>四个题目的讲解</strong></li>
+<li>维护两个值：</li>
+<li>到目前的最小值</li>
+<li>以当前结尾的最好交易</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int maxProfit(vector&lt;int&gt;&amp; prices) {
+        int sum = 0;
+        int minV = INT_MAX;
+        for (int i = 0; i &lt; prices.size(); i++)
+        {
+            // 到目前的最小值
+            if (prices[i] &lt; minV)
+                minV = prices[i];
+            // 以当前结尾的最好交易
+            sum = max(sum, prices[i] - minV);
+        }
+        return sum;
+    }
+};
+</pre></div>
+
+
+<h1 id="122-best-time-to-buy-and-sell-stock-ii">122 Best Time to Buy and Sell Stock II 【贪心】</h1>
+<h2 id="_6">方法一</h2>
+<ul>
+<li>扫描一遍</li>
+<li>相邻差只要是正的就相加</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int maxProfit(vector&lt;int&gt;&amp; prices) {
+        int sum = 0;
+        for (int i = 1; i &lt; prices.size(); i++)
+        {
+            if (prices[i] - prices[i - 1]&gt;0)
+                sum += (prices[i] - prices[i - 1]);
+        }
+        return sum;
+    }
+};
+</pre></div>
+
+
+<h2 id="_7">方法二 超时</h2>
+<ul>
+<li><code>x[0~i] = max(0, x[0-i], max(vi[0],vi[0]+vi[1~i]), ....)</code></li>
+<li>类似于穷举，vi[i]表示到i个的最大交易额，遍历从哪一个i位置转来的</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int maxProfit(vector&lt;int&gt; &amp;prices) {
+        if(prices.size()&lt;=1)
+            return 0;
+        vector&lt;int&gt; vi(prices.size());
+        vi[0]=0;
+        for(int i=1;i&lt;prices.size();i++)
+        {
+// 直接从最后一个到第一个
+            int Max = max(prices[i]-prices[0],0);
+            for(int j=0;j&lt;i-1;j++){
+// 前j个，前j个+i-j 
+                Max = max(max(vi[j],prices[i]-prices[j+1]+vi[j]),Max);
+            }
+            Max = max(vi[i-1],Max);
+            vi[i]=Max;
+        }
+        return vi[prices.size()-1];
+    }
+};
+</pre></div>
+
+
+<h1 id="123-best-time-to-buy-and-sell-stock-iii">123 Best Time to Buy and Sell Stock III 【动态规划】</h1>
+<h2 id="_8">方法一  超时</h2>
+<ul>
+<li>对原来的数组进行切割，分成两部分</li>
+<li>对每个部分计算买卖一次的结果</li>
+</ul>
+<div class="codehilite"><pre>int maxP(vector&lt;int&gt; &amp;prices) {
+    if (prices.size() &lt;= 1)
+        return 0;
+    int Min = prices[0];
+    int cost = -10000;
+    for (int i = 1; i &lt; prices.size(); i++){
+        if (prices[i]&lt;Min)
+            Min = prices[i];
+        if (prices[i] - Min&gt;cost)
+            cost = prices[i] - Min;
+    }
+    return cost;
+}
+
+int maxProfit(vector&lt;int&gt; &amp;prices) {
+    if (prices.size() &lt;= 1)
+        return 0;
+    int Max = 0;
+    Max = max(Max, maxP(prices));
+    for (int i = 0; i &lt; prices.size(); i++){
+        vector&lt;int&gt; A(prices.begin(), prices.begin() + i);
+        vector&lt;int&gt; B(prices.begin() + i, prices.end());
+        Max = max(Max, maxP(A) + maxP(B));
+    }
+    return Max;
+}
+</pre></div>
+
+
+<h2 id="_9">方法二  通过</h2>
+<ul>
+<li>改第一个方法，改为预计算，就不超时了</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    // 先预计算 从头到i位置的单次最大收入和从尾到i位置的单词最大收入
+    void maxP(vector&lt;int&gt; &amp;prices,vector&lt;int&gt; &amp;A ,vector&lt;int&gt; &amp;B) {        
+        int Min = prices[0];    
+        for (int i = 1; i &lt; prices.size(); i++){
+            if (prices[i]&lt;Min)
+                Min = prices[i];
+            A[i] = max(A[i - 1], prices[i] - Min);
+        }
+        int Max = prices[prices.size() - 1];
+        for (int i = prices.size() - 2; i &gt;= 0; i--)
+        {
+            if (prices[i] &gt; Max)
+                Max = prices[i];
+            B[i] = max(B[i + 1], Max - prices[i]);
+        }
+    }
+
+    int maxProfit(vector&lt;int&gt; &amp;prices) {
+        if (prices.size() &lt;= 1)
+            return 0;
+        vector&lt;int&gt; A(prices.size(),0);
+        vector&lt;int&gt; B(prices.size(),0);
+        maxP(prices, A, B);
+        int sum = B[0];
+        // 遍历N个节点
+        for (int i = 0; i &lt; prices.size()-1; i++)        
+            sum = max(sum,A[i] + B[i + 1]);
+        return sum;
+    }
+};
+</pre></div>
+
+
+<h2 id="_10">方法三 通用方法</h2>
+<ul>
+<li>用<code>local[i][j]</code>表示到达第<code>i</code>天时，最多进行<code>j</code>次交易的局部最优解，最后一次交易在最后一天</li>
+<li>用<code>global[i][j]</code>表示到达第<code>i</code>天时，最多进行<code>j</code>次的全局最优解。</li>
+<li>
+<p><code>diff = prices[i] – prices[i – 1]</code></p>
+</li>
+<li>
+<p><strong>递推公式</strong>
+<code>local[i][j] = max(global[i – 1][j – 1] + max(diff, 0), local[i – 1][j] + diff)</code>
+<code>global[i][j] = max(global[i – 1][j], local[i][j])</code></p>
+</li>
+<li>
+<p><strong>简化后的递推公式</strong></p>
+</li>
+<li>最后这天卖出的可能是昨天买的，或者是更前面买的
+<code>local[i][j] = max(global[i - 1][j - 1], local[i - 1][j]) + diff</code>
+<code>global[i][j] = max(local[i][j], global[i - 1][j])</code></li>
+<li>code</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int maxProfit(int k, vector&lt;int&gt; &amp;prices) {
+        if (prices.empty()) return 0;
+        if (k &gt;= prices.size()) return solveMaxProfit(prices);
+        int g[k + 1] = {0};
+        int l[k + 1] = {0};
+        for (int i = 0; i &lt; prices.size() - 1; ++i) {
+            int diff = prices[i + 1] - prices[i];
+            for (int j = k; j &gt;= 1; --j) {
+                l[j] = max(g[j - 1] + max(diff, 0), l[j] + diff);
+                g[j] = max(g[j], l[j]);
+            }
+        }
+        return g[k];
+    }
+    int solveMaxProfit(vector&lt;int&gt; &amp;prices) {
+        int res = 0;
+        for (int i = 1; i &lt; prices.size(); ++i) {
+            if (prices[i] - prices[i - 1] &gt; 0) {
+                res += prices[i] - prices[i - 1];
+            }
+        }
+        return res;
+    }
+};
+</pre></div>
+
+
+<h1 id="124-binary-tree-maximum-path-sum">124 Binary Tree Maximum Path Sum 【类似动态规划】</h1>
+<ul>
+<li>值可能有负值</li>
+<li>如果该枝上所有可能小于0，返回0【丢弃，类似最长子段和】</li>
+<li>可能的情况：根，根+左，根+右，根+左+右</li>
+<li>返回的可能情况：根+左，根+右，根，0</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int solve(TreeNode* root,int &amp;maxDis)
+    {
+        if (root == nullptr)
+            return 0;
+        int leftDis = solve(root-&gt;left,maxDis);
+        int rightDis = solve(root-&gt;right,maxDis);
+        maxDis = max(maxDis, leftDis + rightDis + root-&gt;val);
+        maxDis = max(maxDis, leftDis + root-&gt;val);
+        maxDis = max(maxDis, rightDis + root-&gt;val);
+        maxDis = max(maxDis, root-&gt;val); // 因为返回不会小于0，因此不会大于根+左+右
+        return max(max(rightDis + root-&gt;val, leftDis + root-&gt;val), max(root-&gt;val,0));
+    }
+
+    int maxPathSum(TreeNode* root) {
+        int maxDis=INT_MIN;
+        solve(root,maxDis);
+        return maxDis;
+    }
+};
+</pre></div>
+
+
+<h1 id="125-valid-palindrome">125 Valid Palindrome</h1>
+<ul>
+<li>判断是否为空</li>
+<li>判断是否为字母（数字）的函数，以及大小写转换函数</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    bool isPalindrome(string s) {
+        if (s.size() == 0)
+            return true;
+        string str;
+        for (auto i : s)
+        {
+            if (isalnum(i))
+            {
+                str += tolower(i);
+            }
+        }
+        string tmp = str;
+        reverse(tmp.begin(), tmp.end());
+        if (tmp == str)
+            return true;
+        return false;
+    }
+};
+</pre></div>
+
+
+<h1 id="126-word-ladder-ii">126 Word Ladder II 【搜索最短路径，好题】</h1>
+<ul>
+<li>由于已经分层，所以不需要记录层数，找到的都是最短路径</li>
+<li>使用深度优先搜索构建路径</li>
+<li>注意要在初始集合中删除头节点（如果有的话）</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    vector&lt;string&gt; v;
+    // 深度优先搜索构建
+    void solve(string beginWord, string endWord,unordered_map&lt;string, vector&lt;string&gt; &gt;&amp; us,vector&lt;vector&lt;string&gt; &gt; &amp;vvs)
+    {
+        v.push_back(beginWord);
+        if (beginWord == endWord)
+        {
+            vvs.push_back(v);
+            return;
+        }
+        for (int i = 0; i &lt; us[beginWord].size(); i++)
+        {
+            solve(us[beginWord][i], endWord, us, vvs);
+            v.pop_back();
+        }
+    }
+
+    vector&lt;vector&lt;string&gt;&gt; findLadders(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) {
+        vector&lt;vector&lt;string&gt; &gt; vvs;
+        unordered_set&lt;string&gt; us;
+        for (int i = 0; i &lt; wordList.size(); i++)
+            us.insert(wordList[i]);
+        if (!us.count(endWord))
+            return vvs;
+        // 去除重复元素
+        if (us.count(beginWord))
+            us.erase(beginWord);
+        unordered_map&lt;string, vector&lt;string&gt; &gt; usv;    
+        unordered_set&lt;string&gt; current;
+        current.insert(beginWord);
+        unordered_set&lt;string&gt; next;
+        bool f = false;
+        int count = 1;
+        while (current.size()&gt;0)
+        {
+            if (f)
+                break;
+            for (unordered_set&lt;string&gt; ::iterator it = current.begin(); it != current.end();it++)
+            {
+                string s = *it;
+                vector&lt;string&gt; vs;
+                for (int i = 0; i &lt; beginWord.size(); i++)
+                {
+                    string tmp = s;    
+                    for (char a = &#39;a&#39;; a &lt;= &#39;z&#39;; a++)
+                    {
+                        tmp[i] = a;
+                        if (us.count(tmp))
+                        {
+                            next.insert(tmp);
+                            vs.push_back(tmp);
+                            if (tmp == endWord)
+                                f = true;
+                        }
+                    }
+                }
+                usv[s] = vs;
+            }
+            for (unordered_set&lt;string&gt; ::iterator it = next.begin(); it != next.end(); it++)
+            {            
+                us.erase(*it);
+            }
+            current = next;
+            next.clear();
+            count++;
+        }
+        if (!f)
+            return vvs;
+        solve(beginWord, endWord, usv,vvs);
+        return vvs;
+    }
+};
+</pre></div>
+
+
+<h1 id="127-word-ladder">127 Word Ladder 【好题，图搜索】</h1>
+<ul>
+<li>一层一层的遍历，使用<code>set</code></li>
+<li>保存每一层的节点，以及对应的邻接表，每一层访问完删除该层元素</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int ladderLength(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) {
+        unordered_set&lt;string&gt; us;
+        for (int i = 0; i &lt; wordList.size(); i++)
+            us.insert(wordList[i]);
+        // 如果endword 不在里面，直接返回0
+        if(us.count(endWord)==0)
+            return 0;
+        // 记录邻接表
+        unordered_map&lt;string, vector&lt;string&gt; &gt; usv;    
+        // 当前这一层的
+        unordered_set&lt;string&gt; current;
+        // 插入第一个结点
+        current.insert(beginWord);
+        // 下一层的节点
+        unordered_set&lt;string&gt; next;
+        bool f = false;
+        // 记录层数
+        int count = 1;
+        while (current.size()&gt;0)
+        {
+            if (f)
+                break;
+            for (unordered_set&lt;string&gt; ::iterator it = current.begin(); it != current.end();it++)
+            {
+                string s = *it;
+                vector&lt;string&gt; vs;
+                // 更改每一位
+                for (int i = 0; i &lt; beginWord.size(); i++)
+                {
+                    string tmp = s;    
+                    for (char a = &#39;a&#39;; a &lt;= &#39;z&#39;; a++)
+                    {
+                        tmp[i] = a;
+                        if (us.count(tmp))
+                        {
+                            next.insert(tmp);
+                            vs.push_back(tmp);
+                            // 已经找到
+                            if (tmp == endWord)
+                                f = true;
+                        }
+                    }
+                }
+                usv[s] = vs;
+            }
+            // 在原set中删除这个元素
+            for (unordered_set&lt;string&gt; ::iterator it = next.begin(); it != next.end(); it++)
+            {            
+                us.erase(*it);
+            }
+            // 交换
+            current = next;
+            next.clear();
+            count++;
+        }
+        if (f)
+            return count;
+        return 0;
+    }
+};
+</pre></div>
+
+
+<h1 id="128-longest-consecutive-sequence">128 Longest Consecutive Sequence 【时间换空间】</h1>
+<ul>
+<li>先将数字进行哈希</li>
+<li>对于每个数字，从两个方向查找，对查找过的数据去除哈希标记</li>
+<li>总的复杂度<code>O(N)</code></li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int longestConsecutive(vector&lt;int&gt;&amp; nums) {
+        unordered_map&lt;int, int&gt; mp;
+        for (auto i : nums)
+            mp[i] = 1;
+        int maxCnt = 0;
+        for (auto i : nums)
+        {
+            if (mp[i]==0)
+                continue;
+            int cnt = 1;
+            int l = i-1;
+            while (mp[l] != 0)
+            {
+                cnt++;
+                mp[l--] = 0;
+            }
+            int r = i+1;
+            while (mp[r] != 0)
+            {
+                cnt++;
+                mp[r++] = 0;
+            }
+            maxCnt = max(maxCnt, cnt);        
+        }
+        return maxCnt;
+    }
+};
+</pre></div>
+
+
+<h1 id="129-sum-root-to-leaf-numbers">129 Sum Root to Leaf Numbers 【二叉树】</h1>
+<ul>
+<li>统计到叶子节点的总和</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int sum = 0;
+    vector&lt;int&gt; v;
+    void solve(TreeNode * root)
+    {
+        if (root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL)
+        {
+            int cnt = 0;
+            v.push_back(root-&gt;val);
+            for (int i = 0; i &lt; v.size(); i++)
+                cnt = cnt * 10 + v[i];
+            v.pop_back();
+            sum += cnt;
+            return;
+        }
+        v.push_back(root-&gt;val);
+        if (root-&gt;left)
+            solve(root-&gt;left);
+        if (root-&gt;right)
+            solve(root-&gt;right);
+        v.pop_back();
+    }
+
+    int sumNumbers(TreeNode* root) {
+        v.clear();
+        if(root==NULL)
+            return sum;
+        solve(root);
+        return sum;
+    }
+};
+</pre></div>
+
+
+<h1 id="134-gas-station">134 Gas Station 【思路】</h1>
+<ul>
+<li>记录一个值用来判断总油气是否高于总耗费</li>
+<li>如果这个站已经不可到达，以这个站为新起点</li>
+<li>如果可到达，则加上这个站的消耗</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int canCompleteCircuit(vector&lt;int&gt;&amp; gas, vector&lt;int&gt;&amp; cost) {
+        int sum = 0;
+        int count = 0;
+        int idx=0;
+        for (int i = 0; i &lt; gas.size(); i++)
+        {
+            // 总的是否可以到达
+            sum += (gas[i] - cost[i]);
+            // 如果这个站已经不可到达，则已这个站为起点
+            if (count &lt; 0)
+            {
+                count = gas[i] - cost[i];
+                idx = i;
+            }
+            // 可以到达则加上这个站的消耗
+            else
+            {
+                count+=(gas[i] - cost[i]);
+            }
+        }
+        if (sum &gt;= 0)
+            return idx;
+        return -1;
+    }
+};
+</pre></div>
+
+
+<h1 id="135-candy">135 Candy 【好题，思路】</h1>
+<ul>
+<li>先每个给1</li>
+<li>从左往右，如果大于左边的数=左边+1</li>
+<li>从右往左，如果大于右边的数=max(右边+1，原数)</li>
+<li>从右往左时不要覆盖从左往右的结果</li>
+</ul>
+<div class="codehilite"><pre>class Solution {
+public:
+    int candy(vector&lt;int&gt;&amp; ratings) {
+          int cnt = 0;
+        vector&lt;int&gt; candis(ratings.size(), 1);
+        if (ratings.size() == 0)
+            return cnt;
+        for (int i = 1; i &lt; ratings.size(); ++i)
+        {
+            if (ratings[i] &gt; ratings[i - 1])
+                candis[i] = candis[i - 1] + 1;        // 从左往右加一
+        }
+        for (int i = ratings.size() - 2; i &gt;= 0; --i)
+        {
+            if (ratings[i] &gt; ratings[i + 1])        // 从右往左的时候注意不要覆盖左边累加的结果
+                candis[i] = max(candis[i + 1] + 1, candis[i]);        // 不要覆盖左边的
+        }
+        for_each(candis.begin(), candis.end(), [&amp;cnt](const int &amp; idx){cnt += idx; });
+        return cnt;  
+    }
+};
+</pre></div>
+
+
+<h1 id="144-binary-tree-preorder-traversal">144 Binary Tree Preorder Traversal 【二叉树非递归遍历】</h1>
+<ul>
+<li>参见剑指offer解析</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;int&gt; preorderTraversal(TreeNode* root) {
+        vector&lt;int&gt; v;
+        if (root == nullptr)
+            return v;
+        stack&lt;pair&lt;TreeNode *, bool&gt;&gt; s;
+        s.push(make_pair(root, false));
+        while (!s.empty())
+        {
+            TreeNode * tmp = s.top().first;
+            bool f = s.top().second;
+            s.pop();
+            if (f)
+            {
+                v.push_back(tmp-&gt;val);
+            }
+            else
+            {
+                if (tmp-&gt;right)
+                    s.push(make_pair(tmp-&gt;right, false));
+                if (tmp-&gt;left)
+                    s.push(make_pair(tmp-&gt;left, false));
+                s.push(make_pair(tmp, true));
+            }
+        }
+        return v;
+    }
+};
+</pre></div>
+
+
+<h1 id="145-binary-tree-postorder-traversal">145 Binary Tree Postorder Traversal</h1>
+<div class="codehilite"><pre>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;int&gt; postorderTraversal(TreeNode* root) {
+        vector&lt;int&gt; v;
+        if (root == nullptr)
+            return v;
+        stack&lt;pair&lt;TreeNode *, bool&gt;&gt; s;
+        s.push(make_pair(root, false));
+        while (!s.empty())
+        {
+            TreeNode * tmp = s.top().first;
+            bool f = s.top().second;
+            s.pop();
+            if (f)
+            {
+                v.push_back(tmp-&gt;val);
+            }
+            else
+            {
+                s.push(make_pair(tmp, true));
+                if (tmp-&gt;right)
+                    s.push(make_pair(tmp-&gt;right, false));
+                if (tmp-&gt;left)
+                    s.push(make_pair(tmp-&gt;left, false));                
+            }
+        }
+        return v;
+    }
+};
+</pre></div>
+
+
+<h1 id="147-insertion-sort-list">147 Insertion Sort List 【插入排序】</h1>
+<h2 id="_11">不使用原链表，较简单</h2>
+<ul>
+<li>如果直接在原链表上操作，有点复杂，尤其是链表指向</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        if (head == NULL || head-&gt;next == NULL)
+            return head;
+        ListNode * h = new ListNode(0);
+        ListNode * p = h;
+        while (head)
+        {
+            ListNode * tmp = new ListNode(head-&gt;val);
+            p = h;
+            bool f = false;
+            while (p-&gt;next)
+            {
+                if (p-&gt;next-&gt;val &lt; tmp-&gt;val)
+                {
+                    p = p-&gt;next;
+                }
+                else
+                {
+                    tmp-&gt;next = p-&gt;next;
+                    p-&gt;next = tmp;
+                    f = true;
+                    break;
+                }
+            }
+            if (!f)
+            {
+                p-&gt;next = tmp;
+            }
+            head = head-&gt;next;
+        }
+        return h-&gt;next;
+    }
+};
+</pre></div>
+
+
+<h2 id="_12">使用原链表</h2>
+<ul>
+<li>需要考虑前后的联系</li>
+<li>注意断开当前节点与后面节点的联系</li>
+<li>保留一个<code>next</code>的指针，指向未排序的第一个结点</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        if (head == NULL || head-&gt;next == NULL)
+            return head;
+        ListNode * h = new ListNode(0);
+        ListNode * p = h;
+        h-&gt;next = head;
+        // 保留一个next的指针，断开与母节点的联系
+        ListNode * next = head-&gt;next;
+        head-&gt;next = NULL;
+        while (next)
+        {
+            // 断开与后面的next联系
+            ListNode * tmp = next;
+            next = next-&gt;next;
+            tmp-&gt;next = NULL;
+
+            p = h;
+            bool f = false;
+            // 开始寻找位置
+            while (p-&gt;next)
+            {
+                if (p-&gt;next-&gt;val &lt; tmp-&gt;val)
+                {
+                    p = p-&gt;next;
+                }
+                else
+                {
+                    tmp-&gt;next = p-&gt;next;
+                    p-&gt;next = tmp;
+                    f = true;
+                    break;
+                }
+            }
+            if (!f)
+            {
+                p-&gt;next = tmp;
+            }
+
+        }
+        return h-&gt;next;
+    }
+};
+</pre></div>
+
+
+<h1 id="148-sort-list">148 Sort List 【排序链表】</h1>
+<h2 id="stlsort">STL中的sort</h2>
+<ul>
+<li>放到一个<code>vector</code>中，然后用<code>sort</code></li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+    bool cmp(ListNode * a, ListNode * b)
+    {
+        return a-&gt;val &lt; b-&gt;val;
+    }
+
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        if (head == NULL)
+            return head;
+        vector&lt;ListNode *&gt; vl;
+        while (head)
+        {
+            vl.push_back(head);
+            head = head-&gt;next;
+        }
+        sort(vl.begin(), vl.end(), cmp);
+        for (int i = 0; i &lt; vl.size() - 1; i++)
+            vl[i]-&gt;next = vl[i + 1];
+        vl[vl.size() - 1]-&gt;next = NULL;
+        return vl[0];
+    }
+};
+</pre></div>
+
+
+<h2 id="_13">归并排序</h2>
+<ul>
+<li>归并排序的空间复杂度是<code>O(n)</code>,堆排序的空间复杂度也是<code>O(n)</code>,快排的空间复杂度是<code>O(1)</code></li>
+<li>归并排序不依赖元素的相对顺序，适合对链表进行排序，使用隔一个分成两个子链表</li>
+</ul>
+<div class="codehilite"><pre>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        // 0个或者1个，直接返回
+        if (head == NULL || head-&gt;next ==NULL)
+            return head;
+        // 一个隔一个，划分成两个链表，用于递归，由于归并排序不依赖与元素的顺序
+        ListNode * h1 = head;
+        ListNode * h2 = head-&gt;next;
+        ListNode * p1 = h1;
+        ListNode * p2 = h2;
+        head = head-&gt;next;
+        head = head-&gt;next;
+        while (head)
+        {
+            p1-&gt;next = head;
+            p1 = p1-&gt;next;
+            head = head-&gt;next;
+            if (head)
+            {
+                p2-&gt;next = head;
+                p2 = p2-&gt;next;
+                head = head-&gt;next;
+            }
+        }
+        // 置空尾节点
+        p1-&gt;next = NULL;
+        p2-&gt;next = NULL;
+        // 递归调用
+        p1 = sortList(h1);
+        p2 = sortList(h2);
+        ListNode * h = new ListNode(0);        // 生成一个节点存储
+        ListNode * p = h;
+        // 归并
+        while (true)
+        {
+            while (p1 &amp;&amp; p2)
+            {
+                if (p1-&gt;val &lt; p2-&gt;val)
+                {
+                    p-&gt;next = p1;
+                    p = p-&gt;next;
+                    p1 = p1-&gt;next;
+                }
+                else
+                {
+                    p-&gt;next = p2;
+                    p = p-&gt;next;
+                    p2 = p2-&gt;next;
+                }
+            }
+            while (p1)
+            {
+                p-&gt;next = p1;
+                p = p-&gt;next;
+                p1 = p1-&gt;next;
+            }
+            while (p2)
+            {
+                p-&gt;next = p2;
+                p = p-&gt;next;
+                p2 = p2-&gt;next;
+            }
+            break;
+        }
+        return h-&gt;next;
+    }
+};
+</pre></div>
+        </article>
+      </div>
+    </div>
+  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+          processEscapes: true
+        },
+        TeX: {
+          equationNumbers: {
+            autoNumber: 'AMS'
+          }
+        },
+        "HTML-CSS": {
+          imageFont: null
+        }
+      });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.1-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</html>
